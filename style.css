@@ -12,6 +12,66 @@ body{
     padding: 0;
 }
 
+.header {
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-between; /* Alineación de los elementos del header */
+    align-items: center;
+    height: 85px;
+    padding: 0 10%; /* Reducir el padding horizontal */
+}
+
+.header .logo img {
+    height: 70px;
+    width: auto;
+    transition: transform 0.3s; /* Mejorar la transición */
+}
+
+.header .logo img:hover {
+    transform: scale(1.1); /* Incrementar la escala al hacer hover */
+}
+
+.header .nav-links {
+    list-style: none;
+    display: flex; /* Mostrar los enlaces como una lista horizontal */
+    gap: 20px; /* Espacio entre los elementos de la lista */
+}
+
+.header .nav-links li {
+    padding: 0;
+}
+
+.header .nav-links a {
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px; /* Añadir espaciado interno a los enlaces */
+    border-radius: 8px; /* Redondear los bordes de los enlaces */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+.header .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Cambiar el color de fondo al hacer hover */
+}
+
+.header .btn button {
+    font-weight: 700;
+    color: #ffffff;
+    padding: 10px 25px;
+    background: #ffbc0e;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave del color de fondo y la escala */
+}
+
+.header .btn button:hover {
+    background-color: #ffca3a; /* Cambiar el color de fondo al hacer hover */
+    transform: scale(1.05); /* Escalar ligeramente al hacer hover */
+}
+
+
+
 .swiper {
     width: 100%;
     padding: 150px 0 50px 0;
@@ -86,4 +146,126 @@ body{
     text-decoration: none;
     margin-top: 50px;
     cursor: pointer;
+}
+
+
+h4, h2, small, a{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+.carousel{
+    width: 100%;
+    margin: 0px 0px;
+}
+
+@media(min-width:780px){
+    .carousel h2{
+        margin: 0px 60px;
+    }
+}
+
+.carousel h2{
+    font-size: 45px;
+    line-height: 38px;
+    padding-bottom: 50px;
+    opacity: .9;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+}
+
+.carrusel-list{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 304px;
+    padding: 10px 0px;
+    margin: 0px auto;
+    max-width: 90vw;
+    overflow: hidden;
+}
+
+.carrusel-track{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    transition: .5s ease-in-out;
+}
+
+.carrusel{
+    position: relative;
+    width: 210px;
+    padding: 0 18px;
+    float: left;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+}
+.carrusel h4{
+    position: absolute;
+    z-index: 1;
+    font-size: 22px;
+    line-height: 23px;
+    color: #ffffff;
+    padding: 15px;
+}
+
+.carrusel h4 small{
+    font-size: 15px;
+    display: block;
+}
+
+.carrusel a img{
+    object-fit: cover;
+    height: 300px;
+    width: 200px;
+    border-radius: 15px;
+    box-shadow: 0 2 px 5px 0 rgba(0, 0, 0, 0.5);
+    transition: .3s ease-in-out;
+}
+
+@media(min-width:768px){
+    .carrusel{
+        width: 275px;
+    }
+    .carrusel a img{
+        width: 250px;
+    }
+}
+
+.carrusel-arrow{
+    border-radius: 30px;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 4;
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+}
+
+.carrusel-arrow:focus{
+    outline: 0;
+}
+
+.carrusel-arrow svg{
+    width: 12px;
+    height: 100%;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.carrusel-prev{
+    left: 0px;
+}
+
+.carrusel-next{
+    right: 0px;
 }
