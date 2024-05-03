@@ -71,6 +71,60 @@ body{
 }
 
 
+.section {
+    position: relative;
+    padding: 100px 0; /* Ajusta el espaciado según sea necesario */
+    text-align: center;
+    color: #ffffff; /* Color del texto */
+}
+
+.section-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/fondo.avif'); /* Ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4; /* Ajusta la opacidad según sea necesario */
+    transition: opacity 0.3s ease; /* Transición suave de opacidad */
+}
+
+.section-content {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté sobre la imagen de fondo */
+}
+
+.section h2 {
+    font-size: 48px; /* Tamaño de fuente aumentado */
+    margin-bottom: 20px;
+    font-weight: bold; /* Texto en negrita */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    cursor: pointer; /* Cambio de cursor al pasar por encima */
+    transition: color 0.3s ease; /* Transición suave de color */
+}
+
+.section h2 span {
+    color: #ffbc0e; /* Cambio de color al texto del nombre de la empresa */
+}
+
+.section h2:hover {
+    color: #ffbc0e; /* Cambio de color al pasar el cursor */
+}
+
+.section p {
+    font-size: 24px; /* Tamaño de fuente aumentado */
+    margin-bottom: 40px;
+    line-height: 1.6; /* Altura de línea aumentada para mejor legibilidad */
+    font-style: italic; /* Estilo de fuente cursiva */
+}
+
+
+
+
+
+
 
 .swiper {
     width: 100%;
