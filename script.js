@@ -50,3 +50,25 @@ let nextAction = (leftPosition, trackWidth, listWidth, carruselWidth, track) => 
         track.style.left = `${leftPosition - carruselWidth}px`;
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const areas = document.querySelectorAll('.interactive-image area');
+
+    areas.forEach(area => {
+        area.addEventListener('mouseover', function() {
+            const info = this.getAttribute('data-info');
+            const infoBox = document.createElement('div');
+            infoBox.classList.add('info-box');
+            infoBox.textContent = info;
+            document.body.appendChild(infoBox);
+        });
+
+        area.addEventListener('mouseout', function() {
+            const infoBox = document.querySelector('.info-box');
+            if (infoBox) {
+                infoBox.remove();
+            }
+        });
+    });
+});
