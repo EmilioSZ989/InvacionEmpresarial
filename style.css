@@ -1,81 +1,141 @@
-html,
-body{
-    position: relative;
-    height: 100%;
-}
-body{
-    background-color: #323232;
-    font-family: Helvetica Neue, Helvetica;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
+/* Reset de estilos */
+* {
     padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
 }
 
 /* Estilos generales */
-
-.header {
-    background-color: #24262b;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 85px;
-    padding: 0 10%;
+body {
+    font-family: montserrat;
+    background-color: #121212; /* Color de fondo oscuro */
+    color: #ffffff; /* Color de texto blanco */
 }
 
-.header .logo img {
-    height: 70px;
-    width: auto;
-    transition: transform 0.3s;
+.section-title {
+    color: #ffb900; /* Color amarillo para el texto */
+    font-size: 32px; /* Tamaño de fuente */
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 30px; /* Espaciado inferior */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    font-weight: bold; /* Fuente en negrita */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */ 
+    font-size: 36px;
 }
 
-.header .logo img:hover {
-    transform: scale(1.1);
+a {
+    text-decoration: none;
 }
 
-.header .nav-links {
-    display: flex;
-    list-style: none;
+h4, h2, small {
     margin: 0;
     padding: 0;
 }
 
-.header .nav-links li {
-    margin-left: 20px;
+/* Navbar */
+nav {
+    background: #1f1f1f; /* Fondo del navbar en modo oscuro */
+    height: 80px;
+    width: 100%;
 }
 
-.header .nav-links a {
-    font-size: 16px;
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.3s;
+label.logo {
+    color: #ffffff; /* Texto blanco para el logo */
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
 }
 
-.header .nav-links a:hover {
-    color: #ffbc0e;
+nav ul {
+    float: right;
+    margin-right: 20px;
 }
 
-/* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
-    .header {
-        padding: 0 5%; /* Reducir el padding horizontal */
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: #ffffff; /* Texto blanco para los enlaces */
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+a.active,
+a:hover {
+    background: #383838; /* Color de fondo oscuro para los enlaces activos y hover */
+    transition: .5s;
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: #ffffff; /* Texto blanco para el botón de menú */
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 952px) {
+    .checkbtn {
+        display: block;
     }
-
-    .header .nav-links {
-        display: none; /* Ocultar los enlaces en dispositivos móviles */
-        flex-direction: column; /* Alinear los enlaces en columna */
+    nav {
+        position: fixed; /* Ajustado para que el navbar permanezca fijo en la parte superior */
+        background: #383838; /* Cambiado a un fondo más oscuro sólido */
+        width: 100%;
+        height: 80px;
+        z-index: 1000; /* Añadido un índice z alto para asegurarnos de que esté por encima del contenido */
+    }
+    nav ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #383838; /* Cambiado a un fondo más oscuro sólido */
+        top: 80px;
+        left: -100%;
         text-align: center;
+        transition: left 0.3s ease; /* Ajustada la transición para que sea más rápida y suave */
     }
-
-    .header .nav-links.active {
-        display: flex; /* Mostrar los enlaces al hacer clic en el botón */
+    nav ul li {
+        display: block;
+        margin: 30px 0;
+        line-height: 1.5;
     }
-
-    .header .nav-links li {
-        margin: 10px 0;
+    nav ul li a {
+        font-size: 18px;
+        padding: 15px 20px;
+        color: #ffffff; /* Añadido color de texto para asegurar que no haya translucidez */
+    }
+    a:hover,
+    a.active {
+        background: #1f1f1f;
+    }
+    #check:checked ~ ul {
+        left: 0;
     }
 }
 
+/* Sección */
+section {
+    background: url(bg1.jpg) no-repeat;
+    background-size: cover;
+    height: calc(100vh - 80px);
+}
 
 .section {
     position: relative;
@@ -90,7 +150,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('img/fondo.avif'); /* Ruta de tu imagen de fondo */
+    background-image: url('img/fondo.jpg'); /* Ruta de tu imagen de fondo */
     background-size: cover;
     background-position: center;
     opacity: 0.4; /* Ajusta la opacidad según sea necesario */
@@ -126,20 +186,20 @@ body{
     font-style: italic; /* Estilo de fuente cursiva */
 }
 
-
-
-
-
-
-
+@media (max-width: 768px) {
+    section {
+        height: auto; /* Altura automática en dispositivos pequeños */
+    }
+}
+/* Swiper */
 .swiper {
     width: 100%;
-    padding: 150px 0 50px 0;
+    padding: 50px 0 50px 0;
 }
 
 .swiper-slide {
-    width: 300px;
-    height: 500px;
+    width: 350px;
+    height: 550px;
     background-color: #323232;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     padding: 40px;
@@ -208,40 +268,19 @@ body{
     cursor: pointer;
 }
 
-
-h4, h2, small, a{
-    margin: 0;
-    padding: 0;
-}
-a{
-    text-decoration: none;
-}
-
-
-.carousel{
+/* Carousel */
+.carousel {
     width: 100%;
     margin: 0px 0px;
+    padding: 50px 0 50px 0;
     background-color: #1a1a1a; /* Color de fondo oscuro */
 }
 
-@media(min-width:780px){
-    .carousel h2{
-        margin: 0px 60px;
-    }
+.carousel h2 {
+    margin: 0px 60px 30px;
 }
 
-.carousel h2{
-    font-size: 45px;
-    line-height: 38px;
-    padding-bottom: 50px;
-    opacity: .9;
-    font-weight: 600;
-    text-align: center;
-    color: #ffffff;
-    
-}
-
-.carrusel-list{
+.carrusel-list {
     position: relative;
     display: flex;
     align-items: center;
@@ -253,7 +292,7 @@ a{
     overflow: hidden;
 }
 
-.carrusel-track{
+.carrusel-track {
     position: relative;
     top: 0;
     left: 0;
@@ -262,7 +301,7 @@ a{
     transition: .5s ease-in-out;
 }
 
-.carrusel{
+.carrusel {
     position: relative;
     width: 210px;
     padding: 0 18px;
@@ -271,7 +310,8 @@ a{
     display: flex;
     height: 100%;
 }
-.carrusel h4{
+
+.carrusel h4 {
     position: absolute;
     z-index: 1;
     font-size: 22px;
@@ -280,30 +320,31 @@ a{
     padding: 15px;
 }
 
-.carrusel h4 small{
+.carrusel h4 small {
     font-size: 15px;
     display: block;
 }
 
-.carrusel a img{
+.carrusel a img {
     object-fit: cover;
     height: 300px;
     width: 200px;
     border-radius: 15px;
-    box-shadow: 0 2 px 5px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2 px 5px 0 rgba(0, 0, 0, 0.6);
     transition: .3s ease-in-out;
+    opacity: .5;
 }
 
-@media(min-width:768px){
-    .carrusel{
-        width: 275px;
+@media (min-width:768px) {
+    .carrusel {
+        width: auto;
     }
-    .carrusel a img{
-        width: 250px;
+    .carrusel a img {
+        width: auto;
     }
 }
 
-.carrusel-arrow{
+.carrusel-arrow {
     border-radius: 30px;
     background-color: #ffffff;
     position: absolute;
@@ -315,107 +356,91 @@ a{
     cursor: pointer;
 }
 
-.carrusel-arrow:focus{
+.carrusel-arrow:focus {
     outline: 0;
 }
 
-.carrusel-arrow svg{
+.carrusel-arrow svg {
     width: 12px;
     height: 100%;
     color: rgba(0, 0, 0, 0.7);
 }
 
-.carrusel-prev{
+.carrusel-prev {
     left: 0px;
 }
 
-.carrusel-next{
+.carrusel-next {
     right: 0px;
 }
 
-
-.interactive-image {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
+/* Interactive Section */
+.interactive-section {
     text-align: center;
-    margin-top: 50px;
+    padding: 50px 20px; /* Ajuste del relleno lateral */
 }
 
-.interactive-image h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #ffffff;
+.container-wrapper {
+    display: flex;
+    flex-direction: column; /* Cambio de dirección a columna en dispositivos pequeños */
+    align-items: center; /* Centrado de elementos */
 }
 
-.interactive-image img {
-    width: auto; /* Mantener el ancho original */
-    height: auto;
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+.image-container {
+    width: 100%; /* Ancho completo */
+    max-width: 400px; /* Ancho máximo para mantener el tamaño adecuado */
+    margin-bottom: 30px; /* Espaciado inferior */
 }
 
-
-.interactive-image area {
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.interactive-image area:hover {
-    opacity: 0.7;
+.info-container {
+    width: 100%; /* Ancho completo */
+    padding: 30px; /* Reducción del relleno */
 }
 
 .info-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.8);
     color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    z-index: 9999;
-    transition: opacity 0.3s ease;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s ease;
 }
 
-.info-box::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px;
-    border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
-    transition: opacity 0.3s ease;
+.info-box h3 {
+    font-size: 20px; /* Reducción del tamaño de fuente */
+    margin-bottom: 10px;
 }
 
-.info-box::before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px;
-    border-color: transparent transparent #000 transparent;
+.info-box p {
+    font-size: 14px; /* Reducción del tamaño de fuente */
 }
 
-.info-box:hover {
-    opacity: 0.9;
+.info-box.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
-.info-box:hover::after {
-    opacity: 0.9;
+@media (min-width: 768px) {
+    .container-wrapper {
+        flex-direction: row; /* Cambio de dirección a fila en dispositivos medianos y grandes */
+        justify-content: center; /* Centrado horizontal */
+    }
+
+    .image-container {
+        width: auto; /* Ancho del 50% en dispositivos medianos y grandes */
+        max-width: none; /* Eliminar el ancho máximo */
+        margin-bottom: 0; /* Eliminar el espaciado inferior */
+        margin-right: auto; /* Espaciado a la derecha */
+    }
+
+    .info-container {
+        width: auto; /* Ancho del 50% en dispositivos medianos y grandes */
+        padding: 0; /* Eliminar el relleno */
+    }
 }
 
+
+/* Pricing Section */
 .pricing-section {
     padding: 50px 0;
     background-color: #1a1a1a; /* Color de fondo oscuro */
@@ -423,9 +448,7 @@ a{
 }
 
 .pricing-section h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #ffffff;
+    margin-bottom: 30px;
 }
 
 .pricing-container {
@@ -437,7 +460,7 @@ a{
 
 .pricing-card {
     background-color: #333; /* Color de fondo para modo oscuro */
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra con colores invertidos */
     text-align: center;
@@ -453,19 +476,19 @@ a{
 .pricing-card img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 20px; /* Añadimos un espacio inferior */
+    margin-bottom: 10px; /* Añadimos un espacio inferior */
 }
 
 .pricing-card h2 {
-    font-size: 24px;
+    font-size: 22px;
     color: #fff; /* Texto blanco para modo oscuro */
-    margin-bottom: 10px; /* Espacio inferior reducido */
+    margin-bottom: 5px; /* Espacio inferior reducido */
 }
 
 .pricing-card p {
-    font-size: 16px;
+    font-size: 14px;
     color: #ccc; /* Texto gris claro para modo oscuro */
-    margin-bottom: 10px; /* Espacio inferior reducido */
+    margin-bottom: 5px; /* Espacio inferior reducido */
 }
 
 .pricing-details {
@@ -485,7 +508,7 @@ a{
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color:#ffb900; /* Color naranja para botón */
+    background-color: #ffb900; /* Color naranja para botón */
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -497,17 +520,34 @@ a{
     background-color: #cc5500;
 }
 
+/* Media query para dispositivos de tamaño medio */
 @media (max-width: 768px) {
     .pricing-card {
         width: calc(50% - 20px); /* Dos tarjetas por fila */
     }
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+/* Añadimos estilos para resaltar la tarjeta central */
+.pricing-card.highlight {
+    background-color: #ffb900; /* Color naranja para resaltar */
+    box-shadow: 0 0 20px rgba(255, 185, 0, 0.5); /* Sombra más pronunciada */
 }
 
+.pricing-card.highlight h2 {
+    color: #333; /* Texto oscuro para mayor contraste */
+}
+
+.pricing-card.highlight p,
+.pricing-card.highlight .pricing-details {
+    color: #333; /* Texto oscuro para mayor contraste */
+}
+
+.pricing-card.highlight .btn {
+    background-color: #333; /* Fondo oscuro para botón */
+    color: #ffb900; /* Texto naranja para botón */
+}
+
+/* Footer */
 .footer {
     background-color: #24262b;
     padding: 80px 0;
@@ -522,7 +562,6 @@ a{
     flex: 1; /* Ancho flexible */
     padding: 0 15px;
 }
-
 
 .footer-links h4 {
     font-size: 20px;

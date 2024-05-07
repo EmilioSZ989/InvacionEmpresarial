@@ -13,21 +13,21 @@
 </head>
 <body>
 
-    <header class="header">
-        <div class="logo">
-            <img src="img/logo.png" alt="logo">
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#section">Inicio</a></li>
-                <li><a href="#swiper">Productos</a></li>
-                <li><a href="#carousel">Conoce BoostShell</a></li>
-                <li><a href="#interactive-image">BoostShell</a></li>
-                <li><a href="#pricing-section">Precios</a></li>
-                <li><a href="#footer">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">TechWrap</label>
+        <ul>
+            <li><a class="active" href="#section">Inicio</a></li>
+            <li><a href="#swiper">Productos</a></li>
+            <li><a href="#carousel">Propiedades</a></li>
+            <li><a href="#interactive-section">Componentes</a></li>
+            <li><a href="#pricing-section">¡Ofertas!</a></li>
+            <li><a href="#footer">Contacto</a></li>
+        </ul>
+    </nav>
     
     
     <section id="section" class="section">
@@ -39,109 +39,16 @@
     </section>
 
     <div id="swiper" class="swiper mySwiper">
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-                <div class="icons">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                    <img src="img\logo.png" alt="">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-                <div class="product-content">
-                    <div class="product-txt">
-                        <span>$60</span>
-                        <h3>BoostShell</h3>
-                        <p>Descubre la ultima tecnologia lista para proteger tu telefono mientras le brindas bateria y memoria adicionales, disfrutando de un comodo soporte</p>
-                    </div>
-                    <div class="product-img">
-                        <img src="img\Funda.jpeg" alt="">
-                    </div>
-                </div>
-                <a href="#" class="btn-1">¡COMPRAR AHORA!</a>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="icons">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                    <img src="img\logo.png" alt="">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-                <div class="product-content">
-                    <div class="product-txt">
-                        <span>$5</span>
-                        <h3>SpyBlocker</h3>
-                        <p>Brinda la mayor seguridad a tus datos, protegiendolos de posibles espias.</p>
-                    </div>
-                    <div class="product-img">
-                        <img src="img/Spyblocker.jpeg" alt="">
-                    </div>
-                </div>
-                <a href="#" class="btn-1">¡COMPRAR AHORA!</a>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="icons">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                    <img src="img\logo.png" alt="">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-                <div class="product-content">
-                    <div class="product-txt">
-                        <span>$10</span>
-                        <h3>Touch Writer</h3>
-                        <p>Lleva tus apuntes a otro nivel con ayuda de nuestra poderosa herramienta de trabajo.</p>
-                    </div>
-                    <div class="product-img">
-                        <img src="img/Touchwriter.png" alt="">
-                    </div>
-                </div>
-                <a href="#" class="btn-1">¡COMPRAR AHORA!</a>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="icons">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                    <img src="img\logo.png" alt="">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-                <div class="product-content">
-                    <div class="product-txt">
-                        <span>$410</span>
-                        <h3>AppleWatch</h3>
-                        <p>Sube de nivel tu look y mejora tu experiencia logrando tener todo a tu alcance desde tu mano.</p>
-                    </div>
-                    <div class="product-img">
-                        <img src="img/Applewatch.jpeg" alt="">
-                    </div>
-                </div>
-                <a href="#" class="btn-1">¡COMPRAR AHORA!</a>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="icons">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                    <img src="img\logo.png" alt="">
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-                <div class="product-content">
-                    <div class="product-txt">
-                        <span>$10</span>
-                        <h3>CamSafe</h3>
-                        <p>Protege el area de tu telefono mas delicada, con materiales resistentes de alta calidad</p>
-                    </div>
-                    <div class="product-img">
-                        <img src="img/Camsafe.jpeg" alt="">
-                    </div>
-                </div>
-                <a href="#" class="btn-1">¡COMPRAR AHORA!</a>
-            </div>
-
+        <h2 class="section-title">¡Descubre Nuestros Productos!</h2>
+        <div class="swiper-wrapper" id="swiper-wrapper">
+            <!-- Aquí se generará dinámicamente el contenido -->
         </div>
     </div>
+    
 
     <div id="carousel" class="carousel">
 
-        <h2>Por qué BoostShell?</h2>
+        <h2 class="section-title">¿Por qué BoostShell?</h2>
 
         <div class="carrusel-list" id="carrusel-list">
 
@@ -281,19 +188,28 @@
 
     </div>
 
-    <section id="interactive-image" class="interactive-image">
-        <h2>Mas sobre BoostShell</h2>
-        <img src="img/partefunda2.png" usemap="#image-map">
-    
-        <map name="image-map">
-            <area target="" alt="Transmisor de carga Inalámbrica" title="Transmisor de carga Inalámbrica" href="" coords="201,135,113,174,108,191,116,209,231,334,257,341,296,328,361,293,356,267,234,142,216,134" shape="poly" data-info="Transmisor de carga Inalámbrica: Esta parte del Boostshell te permite cargar tus dispositivos de manera inalámbrica.">
-            <area target="" alt="Memoria 32 GB" title="Memoria 32 GB" href="" coords="205,69,141,93,141,107,156,119,172,126,233,100,234,88,218,68" shape="poly" data-info="Memoria 32 GB: Aquí se encuentra la memoria de 32 GB, que te permite almacenar tus archivos y aplicaciones favoritas.">
-            <area target="" alt="Batería 7600 mAh" title="Batería 7600 mAh" href="" coords="226,124,361,272,375,274,396,259,393,242,254,102,225,118" shape="poly" data-info="Batería 7600 mAh: Esta parte del Boostshell contiene una batería potente de 7600 mAh, que proporciona una larga duración de la batería para tu dispositivo.">
-        </map>
+    <section id="interactive-section" class="interactive-section">
+        <h2 class="section-title">¿Qué compone BoostShell?</h2>
+        <div class="container-wrapper">
+            <div class="image-container">
+                <img src="img/partefunda2.png" alt="BoostShell Image" usemap="#image-map">
+                <map name="image-map">
+                    <area target="" alt="Transmisor de carga Inalámbrica" title="Transmisor de carga Inalámbrica" coords="201,135,113,174,108,191,116,209,231,334,257,341,296,328,361,293,356,267,234,142,216,134" shape="poly" data-info="Transmisor de carga Inalámbrica: Esta parte del Boostshell te permite cargar tus dispositivos de manera inalámbrica.">
+                    <area target="" alt="Memoria 32 GB" title="Memoria 32 GB"  coords="205,69,141,93,141,107,156,119,172,126,233,100,234,88,218,68" shape="poly" data-info="Memoria 32 GB: Aquí se encuentra la memoria de 32 GB, que te permite almacenar tus archivos y aplicaciones favoritas.">
+                    <area target="" alt="Batería 7600 mAh" title="Batería 7600 mAh"  coords="226,124,361,272,375,274,396,259,393,242,254,102,225,118" shape="poly" data-info="Batería 7600 mAh: Esta parte del Boostshell contiene una batería potente de 7600 mAh, que proporciona una larga duración de la batería para tu dispositivo.">
+                </map>
+            </div>
+            <div class="info-container">
+                <div class="info-box">
+                    <h3>¡Aprende con nosotros!</h3>
+                    <p>La información sobre BoostShell se mostrará aquí cuando pases el cursor sobre las áreas interactivas.</p>
+                </div>
+            </div>
+        </div>
     </section>
     
-    <section id="pricing-section" class="pricing-section">
-        <h2>¡Conoce a la Familia!</h2>
+    <div id="pricing-section" class="pricing-section">
+        <h2 class="section-title">¡Conoce a la Familia!</h2>
         <div class="pricing-container">
             <div class="pricing-card">
                 <h2>Combo Bronce</h2>
@@ -329,9 +245,7 @@
                 </div>
             </div>
         </div>
-    </section>
-    
-    
+    </div>
 
     <footer id="footer" class="footer">
         <div class="container">
