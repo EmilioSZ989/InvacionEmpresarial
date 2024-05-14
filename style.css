@@ -9,7 +9,7 @@
 
 /* Estilos generales */
 body {
-    font-family: montserrat;
+    font-family: Montserrat, sans-serif;
     background-color: #121212; /* Color de fondo oscuro */
     color: #ffffff; /* Color de texto blanco */
 }
@@ -23,11 +23,11 @@ body {
     letter-spacing: 2px; /* Espaciado entre letras */
     font-weight: bold; /* Fuente en negrita */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */ 
-    font-size: 36px;
 }
 
 a {
     text-decoration: none;
+    color: #ffffff; /* Color de texto blanco para enlaces */
 }
 
 h4, h2, small {
@@ -37,9 +37,13 @@ h4, h2, small {
 
 /* Navbar */
 nav {
-    background: #1f1f1f; /* Fondo del navbar en modo oscuro */
+    background: #24262b; /* Fondo del navbar en modo oscuro */
     height: 80px;
     width: 100%;
+    position: fixed; /* Hace que el navbar permanezca fijo */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que el navbar esté por encima del contenido */
 }
 
 label.logo {
@@ -95,11 +99,7 @@ a:hover {
         display: block;
     }
     nav {
-        position: fixed; /* Ajustado para que el navbar permanezca fijo en la parte superior */
         background: #383838; /* Cambiado a un fondo más oscuro sólido */
-        width: 100%;
-        height: 80px;
-        z-index: 1000; /* Añadido un índice z alto para asegurarnos de que esté por encima del contenido */
     }
     nav ul {
         position: fixed;
@@ -130,11 +130,11 @@ a:hover {
     }
 }
 
+
 /* Sección */
 section {
     background: url(bg1.jpg) no-repeat;
     background-size: cover;
-    height: calc(100vh - 80px);
 }
 
 .section {
@@ -378,46 +378,116 @@ section {
 .interactive-section {
     text-align: center;
     padding: 50px 20px; /* Ajuste del relleno lateral */
+    background: #121212; /* Fondo en modo oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+.section-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .container-wrapper {
     display: flex;
     flex-direction: column; /* Cambio de dirección a columna en dispositivos pequeños */
     align-items: center; /* Centrado de elementos */
+    animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .image-container {
     width: 100%; /* Ancho completo */
-    max-width: 400px; /* Ancho máximo para mantener el tamaño adecuado */
+    max-width: 500px; /* Ancho máximo para mantener el tamaño adecuado */
     margin-bottom: 30px; /* Espaciado inferior */
+    position: relative;
+    animation: zoomIn 1s ease-in-out;
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
 }
 
 .info-container {
     width: 100%; /* Ancho completo */
     padding: 30px; /* Reducción del relleno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .info-box {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: opacity 0.5s ease;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .info-box h3 {
-    font-size: 20px; /* Reducción del tamaño de fuente */
+    font-size: 24px; /* Reducción del tamaño de fuente */
     margin-bottom: 10px;
 }
 
 .info-box p {
-    font-size: 14px; /* Reducción del tamaño de fuente */
+    font-size: 16px; /* Reducción del tamaño de fuente */
 }
 
 .info-box.hidden {
     opacity: 0;
     pointer-events: none;
+    transform: translateY(20px);
+}
+
+.info-box.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (min-width: 768px) {
@@ -447,8 +517,10 @@ section {
     text-align: center; /* Centrar el contenido */
 }
 
-.pricing-section h2 {
+.section-title {
     margin-bottom: 30px;
+    font-size: 28px;
+    color: #ffb900; /* Color naranja */
 }
 
 .pricing-container {
@@ -466,7 +538,7 @@ section {
     text-align: center;
     transition: transform 0.3s ease;
     width: calc(33.33% - 40px); /* Tres tarjetas por fila */
-    max-width: 250px; /* Aumentamos el ancho máximo */
+    max-width: 250px; /* Ancho máximo */
 }
 
 .pricing-card:hover {
@@ -476,19 +548,19 @@ section {
 .pricing-card img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 10px; /* Añadimos un espacio inferior */
+    margin-bottom: 10px; /* Espacio inferior */
 }
 
 .pricing-card h2 {
     font-size: 22px;
-    color: #fff; /* Texto blanco para modo oscuro */
-    margin-bottom: 5px; /* Espacio inferior reducido */
+    color: #fff; /* Texto blanco */
+    margin-bottom: 5px; /* Espacio inferior */
 }
 
 .pricing-card p {
     font-size: 14px;
-    color: #ccc; /* Texto gris claro para modo oscuro */
-    margin-bottom: 5px; /* Espacio inferior reducido */
+    color: #ccc; /* Texto gris claro */
+    margin-bottom: 5px; /* Espacio inferior */
 }
 
 .pricing-details {
@@ -496,19 +568,19 @@ section {
 }
 
 .pricing-details h3 {
-    font-size: 32px;
-    color: #ffb900; /* Color naranja para precio */
+    font-size: 25px;
+    color: #ffb900; /* Color naranja */
 }
 
 .discount {
     font-size: 14px;
-    color: #00cc00; /* Color verde para descuento */
+    color: #00cc00; /* Color verde */
 }
 
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ffb900; /* Color naranja para botón */
+    background-color: #ffb900; /* Color naranja */
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -527,24 +599,124 @@ section {
     }
 }
 
-/* Añadimos estilos para resaltar la tarjeta central */
-.pricing-card.highlight {
-    background-color: #ffb900; /* Color naranja para resaltar */
-    box-shadow: 0 0 20px rgba(255, 185, 0, 0.5); /* Sombra más pronunciada */
+/* Estilos para resaltar los combos */
+.bronze {
+    transform: scale(0.95);
 }
 
-.pricing-card.highlight h2 {
-    color: #333; /* Texto oscuro para mayor contraste */
+.silver {
+    transform: scale(0.95);
 }
 
-.pricing-card.highlight p,
-.pricing-card.highlight .pricing-details {
-    color: #333; /* Texto oscuro para mayor contraste */
+.gold {
+    transform: scale(1.05);
 }
 
-.pricing-card.highlight .btn {
-    background-color: #333; /* Fondo oscuro para botón */
-    color: #ffb900; /* Texto naranja para botón */
+
+/* Marcas Aliadas */
+.brand-partners {
+    padding: 50px 20px;
+    background-color: #121212;
+    text-align: center;
+}
+
+.brand-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.brand-card {
+    background-color: #323232;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.brand-card:hover {
+    transform: translateY(-10px);
+}
+
+.brand-card img {
+    width: 150px;
+    height: auto;
+    margin-bottom: auto;
+}
+
+.brand-card h3 {
+    font-size: 24px;
+    color: #ffb900;
+}
+
+/* Contact */
+#contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #1a1a1a;
+}
+
+.map-container,
+.contact-form-container {
+    flex: 1 1 45%;
+    padding: 10px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+}
+
+.contact-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-form-container h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .map-container,
+    .contact-form-container {
+        flex: 1 1 100%;
+    }
 }
 
 /* Footer */
@@ -596,7 +768,7 @@ section {
     display: inline-block;
     min-height: 40px;
     width: 40px;
-    background-color: rgba(216, 213, 213, 0.788);
+    background-color: #1a1a1a;
     text-align: center;
     line-height: 40px;
     border-radius: 50%;

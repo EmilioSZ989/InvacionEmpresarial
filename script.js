@@ -125,28 +125,6 @@ let nextAction = (leftPosition, trackWidth, listWidth, carruselWidth, track) => 
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const areas = document.querySelectorAll('.interactive-image area');
-
-    areas.forEach(area => {
-        area.addEventListener('mouseover', function() {
-            const info = this.getAttribute('data-info');
-            const infoBox = document.createElement('div');
-            infoBox.classList.add('info-box');
-            infoBox.textContent = info;
-            document.body.appendChild(infoBox);
-        });
-
-        area.addEventListener('mouseout', function() {
-            const infoBox = document.querySelector('.info-box');
-            if (infoBox) {
-                infoBox.remove();
-            }
-        });
-    });
-});
-
-
 document.addEventListener('DOMContentLoaded', function () {
     const areas = document.querySelectorAll('area');
     const infoBox = document.querySelector('.info-box');
@@ -154,13 +132,15 @@ document.addEventListener('DOMContentLoaded', function () {
     areas.forEach(area => {
         area.addEventListener('mouseenter', function () {
             const info = this.getAttribute('data-info');
-            infoBox.innerHTML = `<h3>Encontraste...</h3><p>${info}</p>`;
+            infoBox.innerHTML = `<h3>¡Encontraste algo interesante!</h3><p>${info}</p>`;
             infoBox.classList.remove('hidden');
+            infoBox.classList.add('visible');
             this.style.filter = 'brightness(70%)'; // Cambiar el brillo al pasar el cursor
         });
 
         area.addEventListener('mouseleave', function () {
             infoBox.classList.add('hidden');
+            infoBox.classList.remove('visible');
             this.style.filter = 'brightness(100%)'; // Restaurar el brillo al salir del área
         });
     });
