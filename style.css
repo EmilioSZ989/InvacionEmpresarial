@@ -50,7 +50,7 @@ label.logo {
     color: #ffffff; /* Texto blanco para el logo */
     font-size: 35px;
     line-height: 80px;
-    padding: 0 100px;
+    padding: 0 20px; /* Ajuste de espaciado para dispositivos móviles */
     font-weight: bold;
 }
 
@@ -84,7 +84,7 @@ a:hover {
     color: #ffffff; /* Texto blanco para el botón de menú */
     float: right;
     line-height: 80px;
-    margin-right: 40px;
+    margin-right: 20px; /* Ajuste de espaciado para dispositivos móviles */
     cursor: pointer;
     display: none;
 }
@@ -100,6 +100,9 @@ a:hover {
     }
     nav {
         background: #383838; /* Cambiado a un fondo más oscuro sólido */
+    }
+    label.logo {
+        padding: 0; /* Eliminar el padding para el logo en dispositivos móviles */
     }
     nav ul {
         position: fixed;
@@ -118,7 +121,7 @@ a:hover {
     }
     nav ul li a {
         font-size: 18px;
-        padding: 15px 20px;
+        padding: 15px 0; /* Ajuste de espaciado para dispositivos móviles */
         color: #ffffff; /* Añadido color de texto para asegurar que no haya translucidez */
     }
     a:hover,
@@ -139,7 +142,7 @@ section {
 
 .section {
     position: relative;
-    padding: 100px 0; /* Ajusta el espaciado según sea necesario */
+    padding: 80px 20px; /* Ajusta el espaciado según sea necesario para dispositivos móviles */
     text-align: center;
     color: #ffffff; /* Color del texto */
 }
@@ -163,8 +166,8 @@ section {
 }
 
 .section h2 {
-    font-size: 48px; /* Tamaño de fuente aumentado */
-    margin-bottom: 20px;
+    font-size: 36px; /* Tamaño de fuente ajustado para dispositivos móviles */
+    margin-bottom: 15px; /* Espaciado inferior reducido para dispositivos móviles */
     font-weight: bold; /* Texto en negrita */
     text-transform: uppercase; /* Convertir texto a mayúsculas */
     cursor: pointer; /* Cambio de cursor al pasar por encima */
@@ -180,9 +183,9 @@ section {
 }
 
 .section p {
-    font-size: 24px; /* Tamaño de fuente aumentado */
-    margin-bottom: 40px;
-    line-height: 1.6; /* Altura de línea aumentada para mejor legibilidad */
+    font-size: 18px; /* Tamaño de fuente ajustado para dispositivos móviles */
+    margin-bottom: 20px; /* Espaciado inferior reducido para dispositivos móviles */
+    line-height: 1.5; /* Altura de línea ajustada para dispositivos móviles */
     font-style: italic; /* Estilo de fuente cursiva */
 }
 
@@ -191,14 +194,16 @@ section {
         height: auto; /* Altura automática en dispositivos pequeños */
     }
 }
+
 /* Swiper */
 .swiper {
     width: 100%;
-    padding: 50px 0 50px 0;
+    padding: 50px 0;
 }
 
 .swiper-slide {
-    width: 350px;
+    width: 100%;
+    max-width: 350px; /* Se ajusta el ancho máximo para dispositivos móviles */
     height: 550px;
     background-color: #323232;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -224,11 +229,13 @@ section {
 
 .product-content {
     display: flex;
+    flex-wrap: wrap; /* Se permite que los elementos se envuelvan en dispositivos pequeños */
     justify-content: space-between;
 }
 
 .product-txt {
-    flex-basis: 50%;
+    flex-basis: 100%; /* Se establece la base flexible al 100% para ocupar todo el ancho en dispositivos pequeños */
+    margin-bottom: 20px; /* Se ajusta el margen inferior para dispositivos móviles */
 }
 
 .product-txt span {
@@ -249,8 +256,8 @@ section {
 }
 
 .product-img {
-    flex-basis: 50%;
-    text-align: right;
+    flex-basis: 100%; /* Se establece la base flexible al 100% para ocupar todo el ancho en dispositivos pequeños */
+    text-align: center; /* Se centra la imagen en dispositivos móviles */
 }
 
 .product-img img {
@@ -264,9 +271,34 @@ section {
     border-radius: 25px;
     color: #ffb900;
     text-decoration: none;
-    margin-top: 50px;
+    margin-top: 30px; /* Se ajusta el margen superior para dispositivos móviles */
     cursor: pointer;
 }
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    .swiper-slide {
+        height: auto; /* Altura automática en dispositivos pequeños */
+        max-width: 80%; /* Ajuste del ancho máximo para ocupar todo el ancho disponible */
+        padding: 20px; /* Reducción del relleno para dispositivos móviles */
+    }
+
+    .product-content {
+        flex-direction: column; /* Cambio a disposición de columna para apilar elementos */
+        align-items: center; /* Centrado de elementos en dispositivos móviles */
+    }
+
+    .product-txt,
+    .product-img {
+        flex-basis: 100%; /* Establecimiento del ancho al 100% para ocupar todo el ancho disponible */
+    }
+
+    .btn-1 {
+        margin-top: 20px; /* Reducción del margen superior para dispositivos móviles */
+    }
+}
+
+
 
 /* Carousel */
 .carousel {
@@ -335,15 +367,6 @@ section {
     opacity: .5;
 }
 
-@media (min-width:768px) {
-    .carrusel {
-        width: auto;
-    }
-    .carrusel a img {
-        width: auto;
-    }
-}
-
 .carrusel-arrow {
     border-radius: 30px;
     background-color: #ffffff;
@@ -372,6 +395,15 @@ section {
 
 .carrusel-next {
     right: 0px;
+}
+
+@media (min-width:768px) {
+    .carrusel {
+        width: auto;
+    }
+    .carrusel a img {
+        width: auto;
+    }
 }
 
 /* Interactive Section */
@@ -592,13 +624,6 @@ section {
     background-color: #cc5500;
 }
 
-/* Media query para dispositivos de tamaño medio */
-@media (max-width: 768px) {
-    .pricing-card {
-        width: calc(50% - 20px); /* Dos tarjetas por fila */
-    }
-}
-
 /* Estilos para resaltar los combos */
 .bronze {
     transform: scale(0.95);
@@ -612,6 +637,12 @@ section {
     transform: scale(1.05);
 }
 
+/* Media query para dispositivos de tamaño medio */
+@media (max-width: 768px) {
+    .pricing-card {
+        width: calc(50% - 20px); /* Dos tarjetas por fila */
+    }
+}
 
 /* Marcas Aliadas */
 .brand-partners {
@@ -712,14 +743,30 @@ button:hover {
     background-color: #0056b3;
 }
 
+/* Media query para dispositivos de tamaño reducido */
 @media (max-width: 768px) {
+    #contact-section {
+        flex-direction: column; /* Cambiar a una disposición de columna para una mejor adaptabilidad */
+        padding: 20px 10px; /* Reducir el relleno lateral */
+    }
+
     .map-container,
     .contact-form-container {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* Ocupar todo el ancho disponible */
+        margin-bottom: 20px; /* Agregar un margen inferior para separar los contenedores */
+    }
+
+    .map-container iframe {
+        min-height: 200px; /* Reducir la altura mínima del mapa */
+    }
+
+    button {
+        width: 100%; /* Ajustar el ancho del botón al 100% */
     }
 }
 
 
+/* Modal compra */
 .modal {
     display: none;
     position: fixed;
@@ -916,11 +963,20 @@ button[type="submit"]:hover {
 
 @media (max-width: 991px) {
     .footer-row {
-        text-align: center;
+        justify-content: center; /* Centrar los elementos */
     }
 
     .footer-links {
         width: 100%;
+        text-align: center; /* Centrar el texto */
         margin-bottom: 30px;
+    }
+
+    .footer-links h4 {
+        font-size: 18px; /* Reducir el tamaño de la fuente del título */
+    }
+
+    .footer-links ul li a {
+        font-size: 16px; /* Reducir el tamaño de la fuente de los enlaces */
     }
 }

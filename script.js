@@ -100,6 +100,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    const nameInput = document.getElementById('name-contact');
+    const emailInput = document.getElementById('email-contact');
+    const messageInput = document.getElementById('message-contact');
+
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Evitar que el formulario se envíe
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
+
+        if (name !== '' && email !== '' && message !== '') {
+            alert('¡Mensaje enviado correctamente! Te contactaremos lo antes posible.');
+            // Limpiar los campos después de enviar el mensaje
+            nameInput.value = '';
+            emailInput.value = '';
+            messageInput.value = '';
+        } else {
+            alert('Por favor, complete todos los campos antes de enviar el mensaje.');
+        }
+    });
+});
+
 
 
 function App() {}
