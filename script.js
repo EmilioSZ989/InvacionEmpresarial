@@ -1,86 +1,104 @@
-// Datos de los productos
-const products = [
-    {
-        name: "BoostShell",
-        price: "$60",
-        description: "Descubre la última tecnología lista para proteger tu teléfono mientras le brindas batería y memoria adicionales, disfrutando de un cómodo soporte",
-        image: "img/Funda.jpeg"
-    },
-    {
-        name: "SpyBlocker",
-        price: "$5",
-        description: "Brinda la mayor seguridad a tus datos, protegiéndolos de posibles espías.",
-        image: "img/Spyblocker.jpeg"
-    },
-    {
-        name: "Touch Writer",
-        price: "$10",
-        description: "Lleva tus apuntes a otro nivel con ayuda de nuestra poderosa herramienta de trabajo.",
-        image: "img/Touchwriter.png"
-    },
-    {
-        name: "AppleWatch",
-        price: "$410",
-        description: "Sube de nivel tu look y mejora tu experiencia logrando tener todo a tu alcance desde tu mano.",
-        image: "img/Applewatch.jpeg"
-    },
-    {
-        name: "CamSafe",
-        price: "$10",
-        description: "Protege el área de tu teléfono más delicada, con materiales resistentes de alta calidad.",
-        image: "img/Camsafe.jpeg"
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('purchaseModal');
+    const span = document.getElementsByClassName('close')[0];
+
+    const modalProductName = document.getElementById('modalProductName');
+    const modalProductDescription = document.getElementById('modalProductDescription');
+    const modalProductPrice = document.getElementById('modalProductPrice');
+    const modalProductImage = document.getElementById('modalProductImage');
+
+    function openModal(productName, productDescription, productPrice, productImageSrc) {
+        modalProductName.innerText = productName;
+        modalProductDescription.innerText = productDescription;
+        modalProductPrice.innerText = productPrice;
+        modalProductImage.src = productImageSrc;
+
+        modal.style.display = 'block';
     }
-];
 
+    function initSwiperSection() {
+        const buyNowButtons = document.querySelectorAll('.swiper .buy-now');
+        
+        buyNowButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const product = event.target.closest('.product');
+                const productName = product.querySelector('.product-name').innerText;
+                const productDescription = product.querySelector('.product-description').innerText;
+                const productPrice = product.querySelector('.product-price').innerText;
+                const productImageSrc = product.querySelector('.product-img img').src;
 
-// Función para generar el HTML de cada producto
-function generateProductHTML(product) {
-    return `
-        <div class="swiper-slide">
-            <div class="icons">
-                <i class="fa-solid fa-circle-arrow-left"></i>
-                <img src="img/logo.png" alt="">
-                <i class="fa-regular fa-heart"></i>
-            </div>
-            <div class="product-content">
-                <div class="product-txt">
-                    <span>${product.price}</span>
-                    <h3>${product.name}</h3>
-                    <p>${product.description}</p>
-                </div>
-                <div class="product-img">
-                    <img src="${product.image}" alt="">
-                </div>
-            </div>
-            <a href="#" class="btn-1">¡COMPRAR AHORA!</a>
-        </div>
-    `;
-}
+                openModal(productName, productDescription, productPrice, productImageSrc);
+            });
+        });
 
-// Generar el HTML para cada producto y agregarlo al contenedor
-const swiperWrapper = document.getElementById("swiper-wrapper");
-products.forEach(product => {
-    const productHTML = generateProductHTML(product);
-    swiperWrapper.innerHTML += productHTML;
-});
-
-// Inicializar el Swiper
-var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    loop: true,
-    coverflowEffect: {
-        depth: 500,
-        modifer: 1,
-        slidesShadows: true,
-        rotate: 0,
-        stretch: 0
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            loop: true,
+            coverflowEffect: {
+                depth: 500,
+                modifer: 1,
+                slidesShadows: true,
+                rotate: 0,
+                stretch: 0
+            }
+        });
     }
+
+    function initPricingSection() {
+        const buyNowButtons = document.querySelectorAll('#pricing-section .buy-now');
+        
+        buyNowButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const product = event.target.closest('.product');
+                const productName = product.querySelector('.product-name').innerText;
+                const productDescription = product.querySelector('.product-description').innerText;
+                const productPrice = product.querySelector('.product-price').innerText;
+                const productImageSrc = product.querySelector('.product-img').src;
+
+                openModal(productName, productDescription, productPrice, productImageSrc);
+            });
+        });
+    }
+
+    span.onclick = () => {
+        modal.style.display = 'none';
+    };
+
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+    initSwiperSection();
+    initPricingSection();
+
+    const purchaseButton = document.querySelector('.btn-submit');
+    purchaseButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Evitar que el formulario se envíe
+
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const addressInput = document.getElementById('address');
+    console.log(nameInput.value);
+    console.log(emailInput.value);
+    console.log(addressInput.value);
+    console.log(nameInput.value !== '' && emailInput.value.trim() !== '' && addressInput.value.trim() !== '');
+
+    if (nameInput.value !== '' && emailInput.value !== '' && addressInput.value !== '') {
+    alert('¡Compra Exitosa!');
+    modal.style.display = 'none';
+    } else {
+    alert('Por favor, complete todos los campos antes de realizar la compra.');
+    }
+    });
+
 });
-
-
 
 
 
