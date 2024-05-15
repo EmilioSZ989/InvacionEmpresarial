@@ -198,12 +198,11 @@ section {
 /* Swiper */
 .swiper {
     width: 100%;
-    padding: 50px 0;
+    padding: 50px 0 50px 0;
 }
 
 .swiper-slide {
-    width: 100%;
-    max-width: 350px; /* Se ajusta el ancho máximo para dispositivos móviles */
+    width: 350px;
     height: 550px;
     background-color: #323232;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -229,13 +228,11 @@ section {
 
 .product-content {
     display: flex;
-    flex-wrap: wrap; /* Se permite que los elementos se envuelvan en dispositivos pequeños */
     justify-content: space-between;
 }
 
 .product-txt {
-    flex-basis: 100%; /* Se establece la base flexible al 100% para ocupar todo el ancho en dispositivos pequeños */
-    margin-bottom: 20px; /* Se ajusta el margen inferior para dispositivos móviles */
+    flex-basis: 50%;
 }
 
 .product-txt span {
@@ -256,8 +253,8 @@ section {
 }
 
 .product-img {
-    flex-basis: 100%; /* Se establece la base flexible al 100% para ocupar todo el ancho en dispositivos pequeños */
-    text-align: center; /* Se centra la imagen en dispositivos móviles */
+    flex-basis: 50%;
+    text-align: right;
 }
 
 .product-img img {
@@ -271,7 +268,7 @@ section {
     border-radius: 25px;
     color: #ffb900;
     text-decoration: none;
-    margin-top: 30px; /* Se ajusta el margen superior para dispositivos móviles */
+    margin-top: 50px;
     cursor: pointer;
 }
 
@@ -297,6 +294,7 @@ section {
         margin-top: 20px; /* Reducción del margen superior para dispositivos móviles */
     }
 }
+
 
 
 
