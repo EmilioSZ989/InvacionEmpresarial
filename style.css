@@ -132,20 +132,21 @@ a:hover {
         left: 0;
     }
 }
-
-
-
 /* Sección */
 section {
-    background: url(bg1.jpg) no-repeat;
+    background: url('bg1.jpg') no-repeat;
     background-size: cover;
 }
 
 .section {
     position: relative;
-    padding: 80px 20px; /* Ajusta el espaciado según sea necesario para dispositivos móviles */
+    padding: 100px 20px; /* Aumenta el espaciado */
     text-align: center;
-    color: #ffffff; /* Color del texto */
+    color: #ffffff;
+    min-height: 100vh; /* Ocupa al menos toda la altura de la ventana */
+    display: flex; /* Utiliza flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
 }
 
 .section-background {
@@ -154,47 +155,62 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('img/fondo.jpg'); /* Ruta de tu imagen de fondo */
+    background-image: url('img/fondo.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.4; /* Ajusta la opacidad según sea necesario */
-    transition: opacity 0.3s ease; /* Transición suave de opacidad */
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+    will-change: opacity; /* Optimización para la transición */
+    z-index: -1; /* Asegura que el fondo esté detrás del contenido */
 }
 
 .section-content {
     position: relative;
-    z-index: 1; /* Asegura que el contenido esté sobre la imagen de fondo */
+    z-index: 1;
+    max-width: 800px; /* Limita el ancho del contenido para mejor legibilidad */
+    padding: 20px; /* Añade un poco de padding para el contenido */
 }
 
 .section h2 {
-    font-size: 36px; /* Tamaño de fuente ajustado para dispositivos móviles */
-    margin-bottom: 15px; /* Espaciado inferior reducido para dispositivos móviles */
-    font-weight: bold; /* Texto en negrita */
-    text-transform: uppercase; /* Convertir texto a mayúsculas */
-    cursor: pointer; /* Cambio de cursor al pasar por encima */
-    transition: color 0.3s ease; /* Transición suave de color */
+    font-size: 48px; /* Tamaño de fuente más grande */
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .section h2 span {
-    color: #ffbc0e; /* Cambio de color al texto del nombre de la empresa */
+    color: #ffbc0e;
 }
 
 .section h2:hover {
-    color: #ffbc0e; /* Cambio de color al pasar el cursor */
+    color: #ffbc0e;
 }
 
 .section p {
-    font-size: 18px; /* Tamaño de fuente ajustado para dispositivos móviles */
-    margin-bottom: 20px; /* Espaciado inferior reducido para dispositivos móviles */
-    line-height: 1.5; /* Altura de línea ajustada para dispositivos móviles */
-    font-style: italic; /* Estilo de fuente cursiva */
+    font-size: 20px; /* Tamaño de fuente más grande */
+    margin-bottom: 30px; /* Más espaciado inferior */
+    line-height: 1.8; /* Altura de línea más cómoda */
+    font-style: italic;
 }
 
+/* Media Queries para dispositivos móviles */
 @media (max-width: 768px) {
-    section {
-        height: auto; /* Altura automática en dispositivos pequeños */
+    .section {
+        padding: 50px 20px; /* Reduce el espaciado en móviles */
+    }
+
+    .section h2 {
+        font-size: 36px; /* Reduce el tamaño de fuente en móviles */
+    }
+
+    .section p {
+        font-size: 18px; /* Reduce el tamaño de fuente en móviles */
+        margin-bottom: 20px; /* Reduce el espaciado inferior en móviles */
     }
 }
+
 
 /* Swiper */
 .swiper {
