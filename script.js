@@ -1,3 +1,15 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const checkBox = document.getElementById('check');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            checkBox.checked = false;
+        });
+    });
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('purchaseModal');
     const span = document.getElementsByClassName('close')[0];

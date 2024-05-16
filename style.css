@@ -134,6 +134,7 @@ a:hover {
 }
 
 
+
 /* Sección */
 section {
     background: url(bg1.jpg) no-repeat;
@@ -407,9 +408,9 @@ section {
 /* Interactive Section */
 .interactive-section {
     text-align: center;
-    padding: 50px 20px; /* Ajuste del relleno lateral */
-    background: #121212; /* Fondo en modo oscuro */
-    color: #ffffff; /* Texto blanco */
+    padding: 50px 20px;
+    background: #121212;
+    color: #ffffff;
 }
 
 .section-title {
@@ -433,8 +434,8 @@ section {
 
 .container-wrapper {
     display: flex;
-    flex-direction: column; /* Cambio de dirección a columna en dispositivos pequeños */
-    align-items: center; /* Centrado de elementos */
+    flex-direction: column;
+    align-items: center;
     animation: fadeInUp 1s ease-in-out;
 }
 
@@ -450,9 +451,9 @@ section {
 }
 
 .image-container {
-    width: 100%; /* Ancho completo */
-    max-width: 500px; /* Ancho máximo para mantener el tamaño adecuado */
-    margin-bottom: 30px; /* Espaciado inferior */
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 30px;
     position: relative;
     animation: zoomIn 1s ease-in-out;
 }
@@ -471,7 +472,7 @@ section {
 .image-container img {
     width: 100%;
     border-radius: 10px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .image-container img:hover {
@@ -479,20 +480,20 @@ section {
 }
 
 .info-container {
-    width: 100%; /* Ancho completo */
-    padding: 30px; /* Reducción del relleno */
+    width: 100%;
+    padding: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .info-box {
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
-    color: #ffffff; /* Texto blanco */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
     width: 100%;
     max-width: 600px;
     text-align: left;
@@ -501,12 +502,12 @@ section {
 }
 
 .info-box h3 {
-    font-size: 24px; /* Reducción del tamaño de fuente */
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
 .info-box p {
-    font-size: 16px; /* Reducción del tamaño de fuente */
+    font-size: 16px;
 }
 
 .info-box.hidden {
@@ -520,22 +521,38 @@ section {
     transform: translateY(0);
 }
 
+/* Media query for medium and large devices */
 @media (min-width: 768px) {
     .container-wrapper {
-        flex-direction: row; /* Cambio de dirección a fila en dispositivos medianos y grandes */
-        justify-content: center; /* Centrado horizontal */
+        flex-direction: row;
+        justify-content: center;
     }
 
     .image-container {
-        width: auto; /* Ancho del 50% en dispositivos medianos y grandes */
-        max-width: none; /* Eliminar el ancho máximo */
-        margin-bottom: 0; /* Eliminar el espaciado inferior */
-        margin-right: auto; /* Espaciado a la derecha */
+        width: 50%;
+        max-width: none;
+        margin-bottom: 0;
+        margin-right: 20px;
     }
 
     .info-container {
-        width: auto; /* Ancho del 50% en dispositivos medianos y grandes */
-        padding: 0; /* Eliminar el relleno */
+        width: 50%;
+        padding: 0;
+    }
+}
+
+/* Media query for small devices */
+@media (max-width: 767px) {
+    .info-box {
+        text-align: center;
+    }
+
+    .info-box h3 {
+        font-size: 20px;
+    }
+
+    .info-box p {
+        font-size: 14px;
     }
 }
 
@@ -551,6 +568,7 @@ section {
     margin-bottom: 30px;
     font-size: 28px;
     color: #ffb900; /* Color naranja */
+    animation: fadeIn 1s ease-in-out; /* Animación para el título */
 }
 
 .pricing-container {
@@ -569,6 +587,7 @@ section {
     transition: transform 0.3s ease;
     width: calc(33.33% - 40px); /* Tres tarjetas por fila */
     max-width: 250px; /* Ancho máximo */
+    animation: slideUp 0.5s ease-in-out; /* Animación para las tarjetas */
 }
 
 .pricing-card:hover {
@@ -579,6 +598,11 @@ section {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px; /* Espacio inferior */
+    transition: transform 0.3s ease;
+}
+
+.pricing-card:hover img {
+    transform: scale(1.1); /* Efecto zoom en hover */
 }
 
 .pricing-card h2 {
@@ -639,8 +663,54 @@ section {
 @media (max-width: 768px) {
     .pricing-card {
         width: calc(50% - 20px); /* Dos tarjetas por fila */
+        margin-bottom: 20px; /* Espacio inferior entre tarjetas */
+    }
+
+    .pricing-card img {
+        margin-bottom: 15px; /* Ajustar el espacio inferior para las imágenes */
+    }
+
+    .pricing-details {
+        margin-top: 10px;
+    }
+
+    .btn {
+        padding: 8px 16px; /* Ajustar padding para botones en móviles */
     }
 }
+
+/* Media query para dispositivos pequeños */
+@media (max-width: 480px) {
+    .pricing-card {
+        width: calc(100% - 20px); /* Una tarjeta por fila */
+    }
+
+    .pricing-card img {
+        max-width: 80%; /* Ajustar el ancho máximo de las imágenes */
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 /* Marcas Aliadas */
 .brand-partners {
